@@ -7,7 +7,7 @@ void bfs(ll s, ll d[]){
     d[s]=0, q.pb(s); //s là node đầu tiên
     while(!q.empty()){
         ll x=q.front();
-        q.pop_front();
+        q.pfs;
         FORA(y,v[x])
             if(d[y]==-1) d[y]=d[x]+1, q.pb(y);
     }

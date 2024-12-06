@@ -5,7 +5,6 @@ using namespace std;
 
 typedef long long ll;
 typedef long double ld;
-typedef __int128 INT;
 typedef vector<ll> vi;
 typedef pair<ll, ll> ii;
 typedef vector<ii> vii;
@@ -62,13 +61,13 @@ ll a[N+5];
 ll n,res;
 
 void sol(){
-    ci(n);
+    cin>>n;
 }
 
 ANH_MINH_CO_TOC{
     fast; open("");
     ll t=1;
-    //ci(t);
+    //cin>>t;
     W(t) sol();
     return 0;
 }

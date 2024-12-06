@@ -1,0 +1,663 @@
+{
+  
+"basic":{
+  "intro dành cho c++ mới": {
+    "prefix": "it",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "typedef long long ll;",
+      "typedef long double ld;",
+      "typedef __int128 INT;",
+      "typedef vector<ll> vi;",
+      "typedef pair<ll, ll> ii;",
+      "typedef vector<ii> vii;",
+      "typedef unordered_map<ll, ll> umi;",
+      "typedef map<ll, ll> mi;",
+      "typedef string str;",
+      "typedef deque<ll> dq;",
+      "typedef set<ll> si;",
+      "typedef multiset<ll> msi;",
+      "typedef priority_queue<ll,vi,greater<ll>> pdq;",
+      "typedef priority_queue<ll,vi,less<ll>> pvq;",
+      "",
+      "#define open(name) {if(fopen(name\".inp\",\"r\")){freopen(name\".inp\",\"r\",stdin);freopen(name\".out\",\"w\",stdout);}}",
+      "#define fast ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0)",
+      "#define ANH_MINH_CO_TOC signed main()",
+      "",
+      "#define fi first",
+      "#define se second",
+      "#define eb emplace_back",
+      "#define ins insert",
+      "#define sz size()",
+      "#define pf push_front",
+      "#define pb push_back",
+      "#define pbs pop_back()",
+      "#define pfs pop_front()",
+      "#define setpr(x) cout<<fixed<<setprecision(x)",
+      "#define all(a) (a).begin(), (a).end()",
+      "#define allr(a,n) (a)+1, (a)+(n)+1",
+      "#define mxx max_element",
+      "#define mnn min_element",
+      "",
+      "#define FOR(i,a,b) for(ll i=a; i<=b; i++)",
+      "#define FORD(i,a,b) for(ll i=a; i>=b; i--)",
+      "#define REP(i,a,b) for(ll i=a; i<b; i++)",
+      "#define REV(i,a,b) for(ll i=a; i>b; i--)",
+      "#define REPS(i,a,b,c) for(ll i=a; i<b; i+=c)",
+      "#define REVS(i,a,b,c) for(ll i=a; i>b; i-=c)",
+      "#define FORS(i,a,b,c) for(ll i=a; i<=b; i+=c)",
+      "#define FORDS(i,a,b,c) for(ll i=a; i>=b; i-=c)",
+      "#define FORA(i,a) for(auto& i: a)",
+      "#define W(i) while(i--)",
+      "#define EL '\\n'",
+      "",
+      "#define add(a, b, mod) (((a) = ((a)%mod + (b)%mod) % (mod)) %= mod)",
+      "#define mx(a, b) ((a) = ((a) > (b) ? (a) : (b)))",
+      "#define mn(a, b) ((a) = ((a) < (b) ? (a) : (b)))",
+      "#define debug cout << \"t muon co ny\" << endl;",
+      "",
+      "const pair<ll, ll> dir[] = { {1,0}, {0,1}, {-1,0}, {0,-1}, {1,1}, {-1,1}, {1,-1}, {-1,-1} };",
+      "const ll MOD[] = {(ll)1e9 + 2277, (ll)1e9 + 5277, (ll)1e9 + 8277, (ll)1e9 + 9277};",
+      "const ll lmax = LLONG_MAX, lmin = LLONG_MIN;",
+      "const ll N=1e6, N2=2e5, M=1e9+7, B=311;",
+      "ll a[N+5];",
+      "ll n,res;",
+      "",
+      "void sol(){",
+      "    ci(n);",
+      "}",
+      "",
+      "ANH_MINH_CO_TOC{",
+      "    fast; open(\"\");",
+      "    ll t=1;",
+      "    //ci(t);",
+      "    W(t) sol();",
+      "    return 0;",
+      "}"
+    ],
+    "description": "intro dành cho c++ mới"
+  },
+  "nén số dùng để giảm giá trị a[i]": {
+    "prefix": "nenso",
+    "body": [
+      "mi c;",
+      "void nenso(){",
+      "    FOR(i,1,n) b[i]=a[i];",
+      "    sort(allr(b,n));",
+      "    ll cur=1;",
+      "    c[b[1]]=1;",
+      "    FOR(i,2,n)",
+      "        if(b[i]!=b[i-1]) c[b[i]]=++cur;",
+      "}"
+    ],
+    "description": "nén số dùng để giảm giá trị a[i]"
+  },
+  "hàm random trong khoảng l->r": {
+    "prefix": "rand",
+    "body": [
+      "mt19937_64 rng(static_cast<ll>(std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count()));",
+      "ll rand(ll l, ll r) {",
+      "    return uniform_int_distribution<ll>(l, r)(rng);",
+      "}"
+    ],
+    "description": "hàm random trong khoảng l->r"
+  }
+},
+
+"cấu trúc dữ liệu":{
+  "bảng thưa": {
+    "prefix": "bangthua",
+    "body": [
+      "const int N=1e5;",
+      "const int Nlog=__lg(N)+1;",
+      "int n;",
+      "ll s[N+1][Nlog];",
+      "ll a[N+1];",
+      "ll merge(ll a,ll b){return min(a,b);}",
+      "void spr(){",
+      "    FOR(i,1,n) s[i][0]=a[i];",
+      "    FOR(j,1,__lg(n))",
+      "        for(ll i=1; i+(1<<j)-1<=n; i++) s[i][j]=merge(s[i][j-1], s[i+(1<<(j-1))][j-1]);",
+      "}",
+      "ll get(int l,int r){",
+      "    ll k=__lg(r-l+1);",
+      "    return merge(s[l][k], s[r-(1<<k)+1][k]); ",
+      "}"
+    ],
+    "description": "bảng thưa"
+  },
+  "Disjoint set union (DSU)": {
+    "prefix": "dsu",
+    "body": [
+      "const ll N=1e5;",
+      "ll par[N+1],sz[N+1];",
+      "void make_set(ll node) {",
+      "    par[node]=node;",
+      "    sz[node]=1;",
+      "    // sum[node]=a[node];",
+      "}",
+      "ll find_set(ll node) { return node == par[node] ? node : par[node] = find_set(par[node]);}",
+      "void join(ll a, ll b) {",
+      "    a=find_set(a);",
+      "    b=find_set(b);",
+      "    if(a!=b){",
+      "        if(sz[a]<sz[b]) swap(a,b);",
+      "        par[b]=a;",
+      "        sz[a]+=sz[b];",
+      "        // sum[a] += sum[b];",
+      "    }",
+      "}"
+    ],
+    "description": "Disjoint set union (DSU)"
+  },
+  "lazy segment tree": {
+    "prefix": "lazy",
+    "body": [
+      "ll a[N+1];",
+      "struct LZst{ll lz;ll val;}ST[N*4+1];",
+      "void down(int id,ll l, ll r){",
+      "",
+      "    if(ST[id].lz==0)return;",
+      "    int t=ST[id].lz;",
+      "    ST[id].lz = 0;",
+      "    ST[id<<1].lz += t;",
+      "    ST[id<<1].val += t;",
+      "    ST[id<<1|1].lz += t;",
+      "    ST[id<<1|1].val += t;",
+      "}",
+      "",
+      "ll merg(ll u,ll v){return max(u,v);}",
+      "void build(int id,int l,int r){",
+      "    if(l==r)",
+      "    {",
+      "        ST[id].val=a[l];",
+      "        //ST[id].lz=0;",
+      "        return;",
+      "    }",
+      "    //down(id);",
+      "    ll mid = (l + r) >> 1;",
+      "    build(id << 1,l,mid);build(id<<1|1,mid+1,r);",
+      "    ST[id].val=merg(ST[id<<1].val,ST[id<<1|1].val);",
+      "",
+      "}",
+      "",
+      "void upd(int id,int l,int r,int u,int v,ll val){",
+      "    if (l > v || r < u) return;",
+      "    if(u<=l&&r<=v)",
+      "    {",
+      "        ST[id].val+=val;",
+      "        ST[id].lz+=val;",
+      "        return;",
+      "    }",
+      "    down(id,l,r);",
+      "    ll mid = (l + r) >> 1;",
+      "    upd(id << 1,l,mid,u,v,val);upd(id<<1|1,mid+1,r,u,v,val);",
+      "    ST[id].val=merg(ST[id<<1].val,ST[id<<1|1].val);",
+      "}",
+      "",
+      "ll get(int id,int l,int r,int u,int v){",
+      "    if(l>v||r<u)return -1e9;",
+      "    if(l>=u&&r<=v)return ST[id].val;",
+      "    ll mid = (l + r) >> 1;",
+      "    down(id,l,r);",
+      "    return merg(get(id << 1,l,mid,u,v),get(id<<1|1,mid+1,r,u,v));",
+      "}"
+    ],
+    "description": "lazy segment tree"
+  },
+  "segment tree (cây phân đoạn)": {
+    "prefix": "st",
+    "body": [
+      "ll st[4*N+5];",
+      "void build(ll id, ll l, ll r){",
+      "    if(l==r){",
+      "        st[id]=a[r];",
+      "        return;",
+      "    }",
+      "    ll mid=(l+r)/2;",
+      "    build(id*2, l, mid);",
+      "    build(id*2+1, mid+1, r);",
+      "    st[id]=max(st[id*2], st[id*2+1]);",
+      "}",
+      "",
+      "void update(ll id, ll l, ll r, ll pos, ll val) {",
+      "    if(r<pos || pos<l) return;",
+      "    if(l==r){",
+      "        st[id]=val;",
+      "        return;",
+      "    }",
+      "    ll mid=(l+r)/2;",
+      "    update(id*2, l, mid, pos, val);",
+      "    update(id*2+1, mid+1, r, pos, val);",
+      "    st[id]=max(st[id*2], st[id*2+1]);",
+      "}",
+      "",
+      "ll get(ll id, ll l, ll r, ll u, ll v) {",
+      "    if(u>r || v<l) return -1e18;",
+      "    if(u<=l && v>=r) return st[id];",
+      "    ll mid=(l+r)/2;",
+      "    return max(get(id*2, l, mid, u, v), get(id*2+1, mid+1, r, u, v));",
+      "}"
+    ],
+    "description": "segment tree (cây phân đoạn)"
+  }
+},
+
+"Đồ thị":{
+  "duyệt đồ thị - BFS (theo chiều rộng)": {
+    "prefix": "bfs",
+    "body": [
+      "vi v[N+5];",
+      "dq q;",
+      "void bfs(ll s, ll d[]){",
+      "    memset(d,-1,sizeof d);",
+      "    d[s]=0, q.pb(s); //s là node đầu tiên",
+      "    while(!q.empty()){",
+      "        ll x=q.front();",
+      "        q.pop_front();",
+      "        FORA(y,v[x])",
+      "            if(d[y]==-1) d[y]=d[x]+1, q.pb(y);",
+      "    }",
+      "}"
+    ],
+    "description": "duyệt đồ thị - BFS (theo chiều rộng)"
+  },
+  "duyệt đồ thị - DFS (theo chiều sâu)": {
+    "prefix": "dfs",
+    "body": [
+      "ll f[N+5];",
+      "vi v[N+5];",
+      "void dfs(ll x){",
+      "    f[x]=true;",
+      "    FORA(y,v[x])",
+      "        if(!f[y]) dfs(y);",
+      "}"
+    ],
+    "description": "duyệt đồ thị - DFS (theo chiều sâu)"
+  },
+  "tìm đường đi ngắn nhất theo trọng số dương": {
+    "prefix": "dijkstra",
+    "body": [
+      "void dijkstra(ll s, ll d[]){",
+      "    pdq q;",
+      "    FOR(i,1,n) d[i]=1e18;",
+      "    d[s]=0, q.push({d[s],s});",
+      "    while(!q.empty()){",
+      "        ll w=q.top().fi, x=q.top().se;",
+      "        q.pop();",
+      "        if(w>d[x]) continue;",
+      "        FORA(y,v[x])",
+      "            if(d[y.fi]>d[x]+y.se) d[y.fi]=d[x]+y.se, q.push({d[y.fi],y.fi});",
+      "    }",
+      "}",
+      "// O(n*n+m)"
+    ],
+    "description": "tìm đường đi ngắn nhất theo trọng số dương"
+  }
+},
+
+"Phép toán thao tác bit":{
+  "thao tác bit": {
+    "prefix": "bit",
+    "body": [
+      "ll sb(ll n, ll k) {return n|(1<<k);} // set bit - bật bit",
+      "ll cb(ll n, ll k) {return n&~(1<<k);} // clear bit - tắt bit",
+      "ll tb(ll n, ll k) {return n^(1<<k);} // toggle bit - đảo ngược bit"
+    ],
+    "description": "thao tác bit"
+  }
+},
+
+"Quy hoạch động":{
+  "quy hoạch động chữ số": {
+    "prefix": "dpdigit",
+    "body": [
+      "vi v;",
+      "ll np[N];",
+      "void snt(ll n){",
+      "    np[0]=np[1]=true;",
+      "    for(ll i=2; i*i<n;i++)",
+      "        for(ll j=i*i; j<n; j+=i) np[j]=true;",
+      "}",
+      "",
+      "ll f[10][2][10*9+5];",
+      "ll dq(ll pos, ll t, ll sm){",
+      "    if(pos==v.sz){",
+      "        if(!np[sm]) return 1;",
+      "        return 0;",
+      "    }",
+      "    if(f[pos][t][sm]!=-1) return f[pos][t][sm];",
+      "    ll res=0;",
+      "    if(t==1){",
+      "        REP(i,0,v[pos]) res+=dq(pos+1, 0, sm+i);",
+      "        res+=dq(pos+1, 1, sm+v[pos]);",
+      "    }",
+      "    else",
+      "        FOR(i,0,9) res+=dq(pos+1, 0, sm+i);",
+      "    f[pos][t][sm]=res;",
+      "    return res;",
+      "}",
+      "",
+      "ll solve(ll n){",
+      "    v.clear();",
+      "    memset(f,-1,sizeof f);",
+      "    while(n) v.pb(n%10), n/=10;",
+      "    reverse(all(v));",
+      "    return dq(0,1,0);",
+      "}"
+    ],
+    "description": "quy hoạch động chữ số"
+  },
+  "nhân ma trận": {
+    "prefix": "mat",
+    "body": [
+      "const ll N=2",
+      "struct mat {ll m[N][N];};",
+      "ll mul(ll a, ll b, ll m){",
+      "    if(b==0) return 0;",
+      "    if(b==1) return a%m;",
+      "    ll h=mul(a,b/2,m)%m;",
+      "    if(b%2==0) return (h+h)%m;",
+      "    return ((h+h)%m+a%m)%m;",
+      "}",
+      "",
+      "mat nhan(mat a, mat b){",
+      "    mat ans;",
+      "    REP(i,0,N)",
+      "        REP(j,0,N){",
+      "            ans.m[i][j]=0;",
+      "            REP(k,0,N) (ans.m[i][j]+=mul(a.m[i][k],b.m[k][j],M))%=M;",
+      "        }",
+      "    return ans;",
+      "}",
+      "",
+      "mat power(mat a, ll b){",
+      "    if(b==0){",
+      "        mat res;",
+      "        REP(i,0,N)",
+      "            REP(j,0,N)",
+      "                if(i==j) res.m[i][j]=1;",
+      "                else res.m[i][j]=0;",
+      "        return res;",
+      "    }",
+      "    if(b==1) return a;",
+      "    mat half=power(a,b/2);",
+      "    if(b&1) return nhan(nhan(half,half),a);",
+      "    return nhan(half,half);",
+      "}",
+      "",
+      "ll n;",
+      "void sol(){",
+      "    ci(n);",
+      "    mat ans; ans.m[0][0]=1, ans.m[0][1]=1;",
+      "    mat res;",
+      "    res.m[0][0]=1; res.m[0][1]=1;",
+      "    res.m[1][0]=1; res.m[1][1]=0;",
+      "    res=power(res,n-1);",
+      "    mat pos=nhan(ans,res);",
+      "    co(pos.m[0][1]);",
+      "    // REP(i,0,N){",
+      "    //     REP(j,0,N){",
+      "    //         co(pos.m[i][j],\"\");",
+      "    //     }",
+      "    //     cout<<endl;",
+      "    // }",
+      "}"
+    ],
+    "description": "nhân ma trận"
+  }
+},
+
+"Sinh":{
+  "sinh hoán vị": {
+    "prefix": "shv",
+    "body": [
+      "void backtrack(ll pos){",
+      "    if(pos>n){",
+      "        FOR(i,1,n) cout<<a[i];",
+      "        cout<<'\\n';",
+      "        return;",
+      "    }",
+      "    FOR(i,1,n){",
+      "        if(kt[i]) continue;",
+      "        a[pos]=i;",
+      "        kt[i]=true;",
+      "        backtrack(pos+1);",
+      "        kt[i]=false;",
+      "    }",
+      "}",
+      "// main{ backtrack(1); }"
+    ],
+    "description": "sinh hoán vị"
+  },
+  "sinh nhị phân": {
+    "prefix": "snp",
+    "body": [
+      "// snp",
+      "",
+      "void backtrack(long long pos){",
+      "    for(long long i=0;i<=1;i++){",
+      "        x[pos]=i;",
+      "        if(pos==n){",
+      "           for(long long i=1;i<=n;i++) cout<<x[i];",
+      "           cout<<'\\n';",
+      "        }",
+      "        else backtrack(pos+1);",
+      "    }",
+      "}",
+      "// main{ backtrack(1); }"
+    ],
+    "description": "sinh nhị phân"
+  },
+  "sinh số": {
+    "prefix": "sinhso",
+    "body": [
+      "void build(ll pos){",
+      "    for(char c:{'4','7'}){",
+      "        s+=c;",
+      "        v.pb(stoll(s));",
+      "        if(pos==10) {s.pop_back(); return;}",
+      "        else build(pos+1);",
+      "        s.pop_back();",
+      "    }",
+      "}",
+      "//sort(all(v))"
+    ],
+    "description": "sinh số"
+  },
+  "sinh tổ hợp": {
+    "prefix": "sth",
+    "body": [
+      "void backtrack(ll pos){",
+      "    for (ll i=a[pos-1]+1; i<=n-(k-pos); i++){",
+      "        a[pos]=i;",
+      "        if(pos==k){",
+      "            for(ll i=1; i<=k; i++) cout<<a[i]<<' ';",
+      "            cout<<'\\n'; ",
+      "        }",
+      "        else backtrack(pos+1);",
+      "    }",
+      "}",
+      "",
+      "// main { backtrack(1); }"
+    ],
+    "description": "sinh tổ hợp"
+  }
+},
+
+"Toán":{
+  "kiểm tra số nguyên tố": {
+    "prefix": "ktsnt",
+    "body": [
+      "bool check(ll n){",
+      "    if(n<=1) return false;",
+      "    if(n==2 || n==3 || n==5 || n==7) return true;",
+      "    if(n%2==0 || n%3==0 || n%5==0 || n%7==0) return false;",
+      "    for(ll i=5; i<=trunc(sqrt(n)); i+=6) {",
+      "        if(n%i==0) return false;",
+      "        if(n%(i+2)==0) return false;",
+      "    }",
+      "    return true;",
+      "}"
+    ],
+    "description": "kiểm tra số nguyên tố"
+  },
+  "leg": {
+    "prefix": "leg",
+    "body": [
+      "//đếm số lần xuất hiện của số nguyên tố x trong n",
+      "//lưu ý trước khi dùng phải sàng nguyên tố rồi dùng hàm leg với từng số nguyên tố để phân tích",
+      "",
+      "ll leg(ll n, ll x){",
+      "    ll p=x, t=0;",
+      "    while(n>=x)",
+      "        t+=n/x,",
+      "        x*=p;",
+      "    return t;",
+      "}"
+    ],
+    "description": "leg"
+  },
+  "hàm tìm số nguyên tố cùng nhau": {
+    "prefix": "phieuler",
+    "body": [
+      "ll eulerPhi(ll n) { ",
+      "    if(n==0) return 0;",
+      "    ll ans=n;",
+      "    FOR(x,2,trunc(sqrt(n)))",
+      "        if(n%x==0) {",
+      "            ans-=ans/x;",
+      "            while(n%x==0) n/=x;",
+      "        }",
+      "    if(n>1) ans-=ans/n;",
+      "    return ans;",
+      "}"
+    ],
+    "description": "hàm tìm số nguyên tố cùng nhau"
+  },
+  "hàm tìm số nguyên tố cùng nhau": {
+    "prefix": "phieuler",
+    "body": [
+      "ll eulerPhi(ll n) { ",
+      "    if(n==0) return 0;",
+      "    ll ans=n;",
+      "    FOR(x,2,trunc(sqrt(n)))",
+      "        if(n%x==0) {",
+      "            ans-=ans/x;",
+      "            while(n%x==0) n/=x;",
+      "        }",
+      "    if(n>1) ans-=ans/n;",
+      "    return ans;",
+      "}"
+    ],
+    "description": "hàm tìm số nguyên tố cùng nhau"
+  },
+  "hàm mũ": {
+    "prefix": "power",
+    "body": [
+      "ll power(ll a, ll b, ll m) {",
+      "    ll res=1;",
+      "    for(; b; a=a*a%m, b>>=1)",
+      "        if(b&1) res=res*a%m;",
+      "    return res;",
+      "}"
+    ],
+    "description": "hàm mũ"
+  },
+  "sàng nguyên tố": {
+    "prefix": "snt",
+    "body": [
+      "ll p[N+5];",
+      "void sang(ll n) {",
+      "    FOR(i,1,n) p[i]=true;",
+      "    p[0]=p[1]=false;",
+      "    FOR(i,2,trunc(sqrt(n))) if(p[i])",
+      "        FORS(j,i*i,n,i) p[j]=false;",
+      "}"
+    ],
+    "description": "sàng nguyên tố"
+  },
+  "sàng đếm ước": {
+    "prefix": "suoc",
+    "body": [
+      "ll d[N+5];",
+      "void sang(ll n){",
+      "    FOR(i,1,n)",
+      "        FORS(j,i,n,i) d[j]++;",
+      "}"
+    ],
+    "description": "sàng đếm ước"
+  },
+  "phân tích thừa số nguyên tố": {
+    "prefix": "pttsnt",
+    "body": [
+      "snt[0]=snt[1]=false;",
+      "for(ll i=2; i<N; i++) snt[i]=1;",
+      "for(ll i=2; i*i<N; i++) if(snt[i])",
+      "    for(ll j=i*i; j<N; j+=i) {",
+      "        snt[j]=false;",
+      "        if(unt[j]==0) unt[j]=i; ",
+      "    }",
+      "for(ll i=2; i<N; i++)",
+      "    if(snt[i]) unt[i]=i;",
+      "...",
+      "while(t--){",
+      "    cin>>n;",
+      "    a.clear();",
+      "    while(n!=1){",
+      "        a.push_back(unt[n]);",
+      "        n/=unt[n];",
+      "    }",
+      "    for(ll i=0; i<a.size(); i++){",
+      "        if(i + 1 == a.size()) {cout<<a[i]; break;}",
+      "        cout<<a[i]<<'*';",
+      "    }",
+      "    cout<<'\\n';",
+      "}",
+      "// O(n * log(log(n)) + t * log(n))",
+      "",
+      "",
+      "FOR(i,2,sqrt(n))",
+      "    while(n%i==0)",
+      "        v.push_back(i), n/=i;",
+      "if(n>1) v.push_back(n);",
+      "REP(i,0,v.sz){",
+      "    if(i+1==v.size()) {cout<<v[i]; break;}",
+      "    cout<<a[i]<<'*';",
+      "}",
+      "// O(căn n)"
+    ],
+    "description": "phân tích thừa số nguyên tố"
+  }
+},
+
+"Xâu":{
+  "hash": {
+    "prefix": "hash",
+    "body": [
+      "ll p[N+5][4], hs[N+5][4], ht[4];",
+      "ll ns,nt,res;",
+      "str s,t;",
+      "",
+      "void buildhs(){",
+      "    ns=s.sz, nt=t.sz;",
+      "    s=' '+s; t=' '+t;",
+      "    FOR(m,0,3){",
+      "        p[0][m]=1;",
+      "        FOR(i,1,N) p[i][m]=(p[i-1][m]*B)%MOD[m];",
+      "        FOR(i,1,ns) hs[i][m]=(hs[i-1][m]*B+s[i])%MOD[m];",
+      "        FOR(i,1,nt) ht[m]=(ht[m]*B+t[i])%MOD[m];",
+      "    }",
+      "}",
+      "ll geths(ll i, ll j, ll M){return (hs[j][M]-hs[i-1][M]*p[j-i+1][M]+MOD[M]*MOD[M])%MOD[M];}",
+      "// FOR(i,1,n)",
+      "//     if(geths(i,i+n2-1,0)==ht[0]) res++;",
+      "// co(res);"
+    ],
+    "description": "hash"
+  }
+}
+
+}

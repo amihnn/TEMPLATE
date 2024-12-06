@@ -1,3 +1,5 @@
+// hash
+
 ll p[N+5][4], hs[N+5][4], ht[4];
 ll ns,nt,res;
 str s,t;
@@ -15,4 +17,4 @@ void buildhs(){
 ll geths(ll i, ll j, ll M){return (hs[j][M]-hs[i-1][M]*p[j-i+1][M]+MOD[M]*MOD[M])%MOD[M];}
 // FOR(i,1,n)
 //     if(geths(i,i+n2-1,0)==ht[0]) res++;
-// co(res);
+// co(res)

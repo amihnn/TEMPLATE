@@ -1,4 +1,5 @@
 // nenso
+
 mi c;
 void nenso(){
     FOR(i,1,n) b[i]=a[i];

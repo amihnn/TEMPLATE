@@ -1,3 +1,4 @@
+// it
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -50,7 +51,7 @@ typedef priority_queue<ll,vi,less<ll>> pvq;
 #define add(a, b, mod) (((a) = ((a)%mod + (b)%mod) % (mod)) %= mod)
 #define mx(a, b) ((a) = ((a) > (b) ? (a) : (b)))
 #define mn(a, b) ((a) = ((a) < (b) ? (a) : (b)))
-#define debug cerr << "t muon co ny" << endl;
+#define debug cout << "t muon co ny" << endl;
 
 const pair<ll, ll> dir[] = { {1,0}, {0,1}, {-1,0}, {0,-1}, {1,1}, {-1,1}, {1,-1}, {-1,-1} };
 const ll MOD[] = {(ll)1e9 + 2277, (ll)1e9 + 5277, (ll)1e9 + 8277, (ll)1e9 + 9277};

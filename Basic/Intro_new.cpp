@@ -1,3 +1,5 @@
+// it
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -46,9 +48,9 @@ typedef priority_queue<ll,vi,less<ll>> pvq;
 #define W(i) while(i--)
 #define EL '\n'
 
-#define add(a, b, mod) (((a) = ((a)%mod + (b)%mod) % (mod)) %= mod)
-#define mx(a, b) ((a) = ((a) > (b) ? (a) : (b)))
-#define mn(a, b) ((a) = ((a) < (b) ? (a) : (b)))
+#define add(a,b,mod) (((a)=((a)%(mod)+(b)%(mod))%(mod))%=(mod))
+#define mx(a,b) ((a)=max((a),(b)))
+#define mn(a,b) ((a)=min((a),(b)))
 #define debug cout << "t muon co ny" << endl;
 
 const pair<ll, ll> dir[] = { {1,0}, {0,1}, {-1,0}, {0,-1}, {1,1}, {-1,1}, {1,-1}, {-1,-1} };
@@ -57,18 +59,15 @@ const ll lmax = LLONG_MAX, lmin = LLONG_MIN;
 const ll N=1e6, N2=2e5, M=1e9+7, B=311;
 ll a[N+5];
 ll n,res;
-vi v;
 
 void sol(){
     cin>>n;
-    cout<<n;
-    FORA(i,v) cout<<0;
 }
 
 ANH_MINH_CO_TOC{
     fast; open("");
     ll t=1;
-    // cin>>t;
+    //cin>>t;
     W(t) sol();
     return 0;
 }

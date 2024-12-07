@@ -1,4 +1,4 @@
-// it
+// bd
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -8,14 +8,13 @@ typedef long double ld;
 typedef vector<ll> vi;
 typedef pair<ll, ll> ii;
 typedef vector<ii> vii;
-typedef unordered_map<ll, ll> umi;
 typedef map<ll, ll> mi;
 typedef string str;
 typedef deque<ll> dq;
 typedef set<ll> si;
 typedef multiset<ll> msi;
-typedef priority_queue<ll,vi,greater<ll>> pdq;
-typedef priority_queue<ll,vi,less<ll>> pvq;
+typedef priority_queue<ll,vi,greater<ll> > pdq;
+typedef priority_queue<ll,vi,less<ll> > pvq;
 
 #define open(name) {if(fopen(name".inp","r")){freopen(name".inp","r",stdin);freopen(name".out","w",stdout);}}
 #define fast ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0)
@@ -44,16 +43,13 @@ typedef priority_queue<ll,vi,less<ll>> pvq;
 #define REVS(i,a,b,c) for(ll i=a; i>b; i-=c)
 #define FORS(i,a,b,c) for(ll i=a; i<=b; i+=c)
 #define FORDS(i,a,b,c) for(ll i=a; i>=b; i-=c)
-#define FORA(i,a) for(auto& i: a)
 #define W(i) while(i--)
 #define EL '\n'
 
-#define add(a, b, mod) (((a) = ((a)%mod + (b)%mod) % (mod)) %= mod)
-#define mx(a, b) ((a) = ((a) > (b) ? (a) : (b)))
-#define mn(a, b) ((a) = ((a) < (b) ? (a) : (b)))
-#define debug cout << "t muon co ny" << endl;
+#define add(a,b,mod) (((a)=((a)%(mod)+(b)%(mod))%(mod))%=(mod))
+#define mx(a,b) ((a)=max((a),(b)))
+#define mn(a,b) ((a)=min((a),(b)))
 
-const pair<ll, ll> dir[] = { {1,0}, {0,1}, {-1,0}, {0,-1}, {1,1}, {-1,1}, {1,-1}, {-1,-1} };
 const ll MOD[] = {(ll)1e9 + 2277, (ll)1e9 + 5277, (ll)1e9 + 8277, (ll)1e9 + 9277};
 const ll lmax = LLONG_MAX, lmin = LLONG_MIN;
 const ll N=1e6, N2=2e5, M=1e9+7, B=311;

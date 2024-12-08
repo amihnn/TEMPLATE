@@ -321,10 +321,10 @@
   "duyệt đồ thị - BFS (theo chiều rộng)": {
     "prefix": "bfs",
     "body": [
-      "vi v[N+5];",
-      "dq q;",
+      "vi v[N+5];"
       "void bfs(ll s, ll d[]){",
-      "    memset(d,-1,sizeof d);",
+      "    dq q;",
+      "    FOR(i,1,N) d[i]=-1;",
       "    d[s]=0, q.pb(s); //s là node đầu tiên",
       "    while(!q.empty()){",
       "        ll x=q.front();",
@@ -332,7 +332,8 @@
       "        FORA(y,v[x])",
       "            if(d[y]==-1) d[y]=d[x]+1, q.pb(y);",
       "    }",
-      "}"
+      "}",
+      "// O(n+m)"
     ],
     "description": "duyệt đồ thị - BFS (theo chiều rộng)"
   },
@@ -345,7 +346,8 @@
       "    f[x]=true;",
       "    FORA(y,v[x])",
       "        if(!f[y]) dfs(y);",
-      "}"
+      "}",
+      "// O(n+m)"
     ],
     "description": "duyệt đồ thị - DFS (theo chiều sâu)"
   },

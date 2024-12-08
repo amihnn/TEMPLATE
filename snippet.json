@@ -1,7 +1,7 @@
 {
   
 "basic":{
-  "intro dành cho c++11": {
+  "intro dành cho c++11 trở lên": {
     "prefix": "it",
     "body": [
       "#include <bits/stdc++.h>",
@@ -52,9 +52,9 @@
       "#define W(i) while(i--)",
       "#define EL '\\n'",
       "",
-      "#define add(a, b, mod) (((a) = ((a)%mod + (b)%mod) % (mod)) %= mod)",
-      "#define mx(a, b) ((a) = ((a) > (b) ? (a) : (b)))",
-      "#define mn(a, b) ((a) = ((a) < (b) ? (a) : (b)))",
+      "#define add(a,b,mod) (((a)=((a)%mod+(b)%mod)%(mod))%=mod)",
+      "#define mx(a,b) ((a)=max((a),(b)))",
+      "#define mn(a,b) ((a)=min((a),(b)))",
       "#define debug cout << \"t muon co ny\" << endl;",
       "",
       "const pair<ll, ll> dir[] = { {1,0}, {0,1}, {-1,0}, {0,-1}, {1,1}, {-1,1}, {1,-1}, {-1,-1} };",
@@ -76,7 +76,7 @@
       "    return 0;",
       "}"
     ],
-    "description": "intro dành cho c++11"
+    "description": "intro dành cho c++11 trở lên"
   },
   "intro dành cho c++98 trở lên": {
     "prefix": "bd",

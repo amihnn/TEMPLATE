@@ -2,14 +2,14 @@
 
 vi v[N+5];
 void bfs(ll s, ll d[]){
-    dq q;
-    FOR(i,1,N) d[i]=-1;
-    d[s]=0, q.pb(s); //s là node đầu tiên
+    vi vis(n+1,0);
+    queue<ll> q;
+    d[s]=0, vis[s]=1, q.push(s); //s là node đầu tiên
     while(!q.empty()){
         ll x=q.front();
-        q.pfs;
+        q.pop();
         FORA(y,v[x])
-            if(d[y]==-1) d[y]=d[x]+1, q.pb(y);
+            if(!vis[y]) vis[y]=1, d[y]=d[x]+1, q.push(y);
     }
 }
 // O(n+m)

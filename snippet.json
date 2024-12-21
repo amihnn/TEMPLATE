@@ -321,8 +321,6 @@
   "duyệt đồ thị - BFS (theo chiều rộng)": {
     "prefix": "bfs",
     "body": [
-      "// bfs",
-      "",
       "vi v[N+5];",
       "void bfs(ll s, ll d[]){",
       "    vi vis(n+1,0);",

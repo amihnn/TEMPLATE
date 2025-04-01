@@ -354,8 +354,10 @@
   "tìm đường đi ngắn nhất theo trọng số dương": {
     "prefix": "dijkstra",
     "body": [
-      "void dijkstra(ll s, ll d[]){",
-      "    pdq q;",
+      "// dijkstra",
+      "ll d[N+5];",
+      "void dijkstra(ll s){",
+      "    priority_queue<ii,vii,greater<ii>> q;",
       "    FOR(i,1,n) d[i]=1e18;",
       "    d[s]=0, q.push({d[s],s});",
       "    while(!q.empty()){",
@@ -369,6 +371,16 @@
       "// O(n*n+m)"
     ],
     "description": "tìm đường đi ngắn nhất theo trọng số dương"
+  },
+  "tìm đường đi ngắn nhất mọi cặp đỉnh và có thể có trọng số âm": {
+    "prefix": "floyd",
+    "body": [
+      "void floyd(ll n){",
+      "    REP(k,0,n) REP(i,0,n) REP(j,0,n)",
+      "        if(a[i][k]<1e18 && a[k][j]<1e18) mn(a[i][j],a[i][k]+a[k][j]);",
+      "}"
+    ],
+    "description": "tìm đường đi ngắn nhất mọi cặp đỉnh và có thể có trọng số âm"
   }
 },
 

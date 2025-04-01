@@ -1,7 +1,7 @@
 // dijkstra
-
-void dijkstra(ll s, ll d[]){
-    pdq q;
+ll d[N+5];
+void dijkstra(ll s){
+    priority_queue<ii,vii,greater<ii>> q;
     FOR(i,1,n) d[i]=1e18;
     d[s]=0, q.push({d[s],s});
     while(!q.empty()){
